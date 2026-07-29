@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DondeCompro | Centro de Acceso Inteligente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070A11;
+            --surface-card: #0F172A;
+            --surface-hover: #1E293B;
+            --accent-blue: #2563EB;
+            --accent-cyan: #06B6D4;
+            --accent-green: #10B981;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --radius-xl: 24px;
+            --radius-md: 14px;
+            
+            /* Colores Oficiales */
+            --brand-whatsapp: #25D366;
+            --brand-facebook: #1877F2;
+            --brand-instagram: #E4405F;
+            --brand-tiktok: #000000;
+            --brand-linkedin: #0A66C2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .gateway-card {
+            width: 100%;
+            max-width: 440px;
+            background: var(--surface-card);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(37, 99, 235, 0.2);
+            padding: 28px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Hero Header */
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: var(--accent-cyan);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 16px;
+        }
+
+        .hero-logo-box {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border-radius: 22px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 38px;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .hero-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 8px 0 22px;
+            line-height: 1.5;
+        }
+
+        /* Botones Principales CTAs */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary-action {
+            background: linear-gradient(90deg, #2563EB, #1D4ED8);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-action {
+            background: linear-gradient(90deg, #10B981, #059669);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-action:hover, .btn-secondary-action:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* Grid de Accesos Rápidos */
+        .section-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .quick-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 14px 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .quick-item i {
+            font-size: 20px;
+            color: var(--accent-cyan);
+        }
+
+        .quick-item:hover {
+            background: var(--surface-hover);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Sección ¿Qué es? & ¿Cómo Funciona? */
+        .info-box {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .info-box h3 {
+            font-size: 14px;
+            color: var(--accent-cyan);
+            margin-bottom: 6px;
+        }
+
+        .info-box p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Steps */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 12px 6px;
+        }
+
+        .step-num {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 6px;
+        }
+
+        .step-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .step-desc {
+            font-size: 10px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Categorías Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .cat-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 10px 4px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cat-item i {
+            font-size: 15px;
+            color: var(--accent-cyan);
+        }
+
+        /* Ventajas B2B */
+        .benefits-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1));
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .benefits-box h4 {
+            font-size: 13px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .benefit-item i {
+            color: var(--accent-green);
+        }
+
+        /* QR Code Box */
+        .qr-box {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 15px;
+            width: 170px;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .qr-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .qr-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        /* Social Icons */
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background: var(--surface-hover);
+        }
+
+        /* Banner Alianza B2B Integrada */
+        .b2b-banner {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px dashed var(--accent-green);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 20px;
+        }
+
+        .b2b-banner h5 {
+            font-size: 12px;
+            color: var(--accent-green);
+            margin-bottom: 4px;
+        }
+
+        .b2b-banner p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .btn-b2b {
+            background: var(--accent-green);
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Footer Discreto */
+        .konfio-footer {
+            font-size: 10px;
+            color: rgba(148, 163, 184, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gateway-card">
+        
+        <!-- Badge -->
+        <div class="brand-badge">
+            <i class="fa-solid fa-bolt"></i> Centro de Acceso Oficial
+        </div>
+
+        <!-- Logo Icon -->
+        <div class="hero-logo-box">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+
+        <!-- Hero Title -->
+        <h1 class="hero-title">Donde<span>Compro</span></h1>
+        <p class="hero-tagline">Toda Colombia en un solo lugar. Encuentra comercios, publica tu negocio y conecta con nuevos clientes.</p>
+
+        <!-- Botones Principales -->
+        <div class="cta-group">
+            <a href="https://www.dondecompro.com.co" class="btn-primary-action" target="_blank">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Ir a DondeCompro
+            </a>
+            <a href="https://www.dondecompro.com.co" class="btn-secondary-action" target="_blank">
+                <i class="fa-solid fa-store"></i> Registrar mi Comercio
+            </a>
+        </div>
+
+        <!-- Accesos Rápidos -->
+        <div class="section-label">Accesos Rápidos</div>
+        <div class="quick-grid">
+            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
+                <i class="fa-solid fa-magnifying-glass"></i> Buscar Comercios
+            </a>
+            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
+                <i class="fa-solid fa-plus-circle"></i> Registrar Negocio
+            </a>
+            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
+                <i class="fa-solid fa-user-gear"></i> Ingresar al Panel
+            </a>
+            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
+                <i class="fa-solid fa-location-crosshairs"></i> Cerca de Mí
+            </a>
+            <a href="https://wa.me/573218712092?text=Hola%20DondeCompro,%20necesito%20soporte%20o%20informaci%C3%B3n" class="quick-item" target="_blank">
+                <i class="fa-brands fa-whatsapp" style="color: var(--brand-whatsapp);"></i> WhatsApp Directo
+            </a>
+            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
+                <i class="fa-solid fa-globe"></i> Sitio Web Oficial
+            </a>
+        </div>
+
+        <!-- ¿Qué es? -->
+        <div class="info-box">
+            <h3>¿Qué es DondeCompro?</h3>
+            <p>Una plataforma colombiana diseñada para conectar personas con negocios, productos y servicios desde un solo lugar de manera ágil y directa.</p>
+        </div>
+
+        <!-- Cómo funciona -->
+        <div class="section-label">¿Cómo Funciona?</div>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-title">Busca</div>
+                <div class="step-desc">Encuentra comercios</div>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-title">Contacta</div>
+                <div class="step-desc">Habla directo</div>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <div class="step-title">Compra</div>
+                <div class="step-desc">Sin comisiones</div>
+            </div>
+        </div>
+
+        <!-- Categorías -->
+        <div class="section-label">Explora por Categorías</div>
+        <div class="categories-grid">
+            <div class="cat-item"><i class="fa-solid fa-utensils"></i>Comida</div>
+            <div class="cat-item"><i class="fa-solid fa-scale-balanced"></i>Abogados</div>
+            <div class="cat-item"><i class="fa-solid fa-calculator"></i>Contadores</div>
+            <div class="cat-item"><i class="fa-solid fa-scissors"></i>Belleza</div>
+            <div class="cat-item"><i class="fa-solid fa-notes-medical"></i>Salud</div>
+            <div class="cat-item"><i class="fa-solid fa-house"></i>Hogar</div>
+            <div class="cat-item"><i class="fa-solid fa-car"></i>Automotriz</div>
+            <div class="cat-item"><i class="fa-solid fa-cart-shopping"></i>Tiendas</div>
+        </div>
+
+        <!-- ¿Por qué registrarse? -->
+        <div class="benefits-box">
+            <h4>¿Por qué registrar tu negocio?</h4>
+            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Más visibilidad en toda Colombia</div>
+            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Nuevos clientes cada día</div>
+            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Perfil profesional optimizado</div>
+            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Fácil de compartir por WhatsApp</div>
+        </div>
+
+        <!-- Banner Oportunidad B2B para Comercios (Demostración de Integración) -->
+        <div class="b2b-banner">
+            <h5>⭐ ¿Tienes un comercio afiliado?</h5>
+            <p>Obtén tu propia Tarjeta Digital Profesional respaldada por la red DondeCompro.</p>
+            <a href="https://wa.me/573218712092?text=Deseo%20solicitar%20mi%20Tarjeta%20Digital%20Profesional%20para%20mi%20comercio" class="btn-b2b" target="_blank">
+                Solicitar Tarjeta Digital
+            </a>
+        </div>
+
+        <!-- QR Gigante -->
+        <div class="section-label">Escanéame para Compartir</div>
+        <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.dondecompro.com.co&color=070A11" alt="QR DondeCompro">
+        </div>
+        <div class="qr-label">Acceso Directo a DondeCompro.com.co</div>
+
+        <!-- Redes Sociales -->
+        <div class="social-row">
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://wa.me/573218712092" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+
+        <!-- Créditos Obligatorios -->
+        <div class="konfio-footer">
+            Desarrollado por Konfío Zinc @ Todos los Derechos Reservados
+        </div>
+
+    </div>
+
+</body>
+</html>
