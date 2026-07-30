@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DondeCompro | Centro de Acceso Inteligente</title>
+    <title>DondeCompro | El Centro de Acceso Comercial de Colombia</title>
+    <!-- Iconos Unificados FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tipografía Google Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-dark: #070A11;
+            --bg-dark: #070B14;
             --surface-card: #0F172A;
             --surface-hover: #1E293B;
-            --accent-blue: #2563EB;
-            --accent-cyan: #06B6D4;
+            --surface-accent: rgba(30, 41, 59, 0.7);
+            
+            --primary-blue: #2563EB;
+            --primary-cyan: #06B6D4;
             --accent-green: #10B981;
+            --accent-orange: #F97316;
+            
             --text-primary: #F8FAFC;
             --text-secondary: #94A3B8;
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --radius-xl: 24px;
-            --radius-md: 14px;
+            --text-muted: #64748B;
             
-            /* Colores Oficiales */
+            --border-light: rgba(255, 255, 255, 0.1);
+            --border-glow: rgba(6, 182, 212, 0.3);
+            
+            --radius-main: 28px;
+            --radius-card: 16px;
+            
+            /* Social Brands */
             --brand-whatsapp: #25D366;
-            --brand-facebook: #1877F2;
             --brand-instagram: #E4405F;
-            --brand-tiktok: #000000;
-            --brand-linkedin: #0A66C2;
+            --brand-facebook: #1877F2;
         }
 
         * {
@@ -33,6 +42,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -42,366 +52,478 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 15px;
+            padding: 12px;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(6, 182, 212, 0.12) 0px, transparent 50%);
         }
 
-        .gateway-card {
+        /* Contenedor Estilo App Móvil */
+        .gateway-app {
             width: 100%;
             max-width: 440px;
             background: var(--surface-card);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(37, 99, 235, 0.2);
-            padding: 28px 20px;
-            text-align: center;
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(37, 99, 235, 0.15);
             overflow: hidden;
+            position: relative;
+            animation: fadeInApp 0.8s ease-out;
         }
 
-        /* Hero Header */
-        .brand-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(37, 99, 235, 0.15);
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            color: var(--accent-cyan);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 16px;
+        @keyframes fadeInApp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-logo-box {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-            border-radius: 22px;
+        /* Hero Section Impactante */
+        .hero-section {
+            position: relative;
+            padding: 35px 20px 25px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, var(--surface-card) 100%),
+                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(7, 11, 20, 0.75) 0%, var(--surface-card) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Logo Animado */
+        .logo-box {
+            width: 85px;
+            height: 85px;
             margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 40px;
             color: #FFFFFF;
-            font-size: 38px;
-            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulseLogo 3s infinite ease-in-out;
         }
 
-        .hero-title {
-            font-size: 26px;
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4); }
+            50% { transform: scale(1.04); box-shadow: 0 18px 40px rgba(6, 182, 212, 0.6); }
+        }
+
+        .brand-name {
+            font-size: 30px;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
+            letter-spacing: -0.8px;
+            margin-bottom: 6px;
         }
 
-        .hero-title span {
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+        .brand-name span {
+            background: linear-gradient(90deg, var(--primary-cyan), #38BDF8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-tagline {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin: 8px 0 22px;
-            line-height: 1.5;
+        .hero-headline {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 6px;
         }
 
-        /* Botones Principales CTAs */
-        .cta-group {
+        .hero-subline {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+        }
+
+        /* Jerarquía de Botones Principales */
+        .main-ctas {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 24px;
         }
 
-        .btn-primary-action {
-            background: linear-gradient(90deg, #2563EB, #1D4ED8);
+        .btn-main-primary {
+            background: linear-gradient(90deg, var(--primary-blue), #1D4ED8);
             color: #FFFFFF;
             text-decoration: none;
-            padding: 16px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
+            padding: 16px 20px;
+            border-radius: var(--radius-card);
             font-size: 15px;
+            font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all 0.3s ease;
         }
 
-        .btn-secondary-action {
-            background: linear-gradient(90deg, #10B981, #059669);
+        .btn-main-secondary {
+            background: linear-gradient(90deg, var(--accent-green), #059669);
             color: #FFFFFF;
             text-decoration: none;
-            padding: 15px;
-            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            border-radius: var(--radius-card);
+            font-size: 13px;
             font-weight: 700;
-            font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
             transition: all 0.3s ease;
         }
 
-        .btn-primary-action:hover, .btn-secondary-action:hover {
+        .btn-main-primary:hover, .btn-main-secondary:hover {
             transform: translateY(-2px);
             filter: brightness(1.1);
         }
 
-        /* Grid de Accesos Rápidos */
-        .section-label {
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            text-align: left;
-            margin-bottom: 12px;
+        /* Cuerpo de la Aplicación */
+        .app-body {
+            padding: 24px 18px;
         }
 
-        .quick-grid {
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        /* Grid de Accesos Rápidos */
+        .quick-access-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
-        .quick-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 14px 10px;
+        .quick-card {
+            background: var(--surface-accent);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-card);
+            padding: 14px 12px;
             text-decoration: none;
             color: var(--text-primary);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            font-weight: 600;
+            gap: 12px;
             transition: all 0.2s ease;
         }
 
-        .quick-item i {
+        .quick-card i {
             font-size: 20px;
-            color: var(--accent-cyan);
+            color: var(--primary-cyan);
+            width: 24px;
+            text-align: center;
         }
 
-        .quick-item:hover {
+        .quick-card-text span {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .quick-card-text small {
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .quick-card:hover {
             background: var(--surface-hover);
-            border-color: var(--accent-cyan);
+            border-color: var(--primary-cyan);
             transform: translateY(-2px);
         }
 
-        /* Sección ¿Qué es? & ¿Cómo Funciona? */
-        .info-box {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 16px;
-            text-align: left;
-            margin-bottom: 24px;
-        }
-
-        .info-box h3 {
-            font-size: 14px;
-            color: var(--accent-cyan);
-            margin-bottom: 6px;
-        }
-
-        .info-box p {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* Steps */
-        .steps-container {
+        /* Sección ¿Cómo Funciona? (3 Pasos) */
+        .how-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
-        .step-card {
+        .how-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-subtle);
+            border: 1px solid var(--border-light);
             border-radius: 12px;
-            padding: 12px 6px;
+            padding: 14px 8px;
+            text-align: center;
         }
 
-        .step-num {
-            width: 24px;
-            height: 24px;
-            background: var(--accent-blue);
-            color: white;
+        .how-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--primary-cyan);
             border-radius: 50%;
-            font-weight: 800;
-            font-size: 11px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 6px;
+            margin: 0 auto 8px;
+            font-size: 14px;
+            font-weight: 800;
         }
 
-        .step-title {
-            font-size: 11px;
+        .how-card h4 {
+            font-size: 12px;
             font-weight: 700;
             color: var(--text-primary);
+            margin-bottom: 2px;
         }
 
-        .step-desc {
+        .how-card p {
             font-size: 10px;
             color: var(--text-secondary);
-            margin-top: 2px;
         }
 
-        /* Categorías Grid */
-        .categories-grid {
+        /* Galería de Categorías Reales con Fotos */
+        .categories-scroll {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 28px;
         }
 
-        .cat-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            padding: 10px 4px;
-            font-size: 10px;
-            color: var(--text-secondary);
+        .cat-photo-card {
+            position: relative;
+            height: 85px;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            text-decoration: none;
+        }
+
+        .cat-photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            transition: all 0.3s ease;
+        }
+
+        .cat-photo-card:hover img {
+            filter: brightness(0.8);
+            transform: scale(1.05);
+        }
+
+        .cat-label {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            right: 10px;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 700;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            z-index: 2;
         }
 
-        .cat-item i {
+        /* Sección Comunidad Nacional / Visión */
+        .community-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.08));
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius-card);
+            padding: 18px;
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .community-box h3 {
             font-size: 15px;
-            color: var(--accent-cyan);
-        }
-
-        /* Ventajas B2B */
-        .benefits-box {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(16, 185, 129, 0.1));
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            border-radius: var(--radius-md);
-            padding: 16px;
-            text-align: left;
-            margin-bottom: 24px;
-        }
-
-        .benefits-box h4 {
-            font-size: 13px;
             color: var(--text-primary);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
+            font-weight: 800;
         }
 
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .community-box p {
             font-size: 12px;
             color: var(--text-secondary);
-            margin-bottom: 6px;
+            margin-bottom: 14px;
+            line-height: 1.4;
         }
 
-        .benefit-item i {
-            color: var(--accent-green);
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px dashed var(--border-light);
+            padding-top: 12px;
         }
 
-        /* QR Code Box */
-        .qr-box {
+        .stat-item h5 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-cyan);
+        }
+
+        .stat-item small {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Módulo Upsell Estratégico KONFÍO ZINC (El Valor Agregado) */
+        .konfio-upsell-card {
+            background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: var(--radius-card);
+            padding: 18px;
+            margin-bottom: 28px;
+            text-align: left;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+        }
+
+        .upsell-badge {
+            background: rgba(139, 92, 246, 0.2);
+            color: #A78BFA;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .konfio-upsell-card h4 {
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .konfio-upsell-card p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .btn-upsell {
+            background: linear-gradient(90deg, #7C3AED, #6D28D9);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-upsell:hover {
+            filter: brightness(1.2);
+            transform: translateY(-1px);
+        }
+
+        /* QR Code Gigante */
+        .qr-wrapper {
             background: #FFFFFF;
-            border-radius: 16px;
-            padding: 15px;
-            width: 170px;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border-radius: var(--radius-card);
+            padding: 16px;
+            width: 180px;
+            margin: 0 auto 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .qr-box img {
+        .qr-wrapper img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .qr-label {
+        .qr-subtitle {
             font-size: 11px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-
-        /* Social Icons */
-        .social-row {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
+            color: var(--text-muted);
             margin-bottom: 24px;
         }
 
-        .social-link {
-            width: 38px;
-            height: 38px;
+        /* Footer Profesional */
+        .app-footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--border-light);
+            padding: 24px 18px 18px;
+            text-align: center;
+        }
+
+        .social-links-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .social-icon-btn {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
+            border: 1px solid var(--border-light);
             color: var(--text-primary);
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            font-size: 16px;
             transition: all 0.2s ease;
         }
 
-        .social-link:hover {
-            transform: scale(1.1);
+        .social-icon-btn:hover {
             background: var(--surface-hover);
+            color: var(--primary-cyan);
+            transform: translateY(-2px);
         }
 
-        /* Banner Alianza B2B Integrada */
-        .b2b-banner {
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px dashed var(--accent-green);
-            border-radius: 14px;
-            padding: 14px;
-            margin-bottom: 20px;
-        }
-
-        .b2b-banner h5 {
-            font-size: 12px;
-            color: var(--accent-green);
+        .footer-brand-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 4px;
         }
 
-        .b2b-banner p {
+        .footer-links {
             font-size: 11px;
             color: var(--text-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 16px;
         }
 
-        .btn-b2b {
-            background: var(--accent-green);
-            color: #000;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 700;
+        .footer-links a {
+            color: var(--text-secondary);
             text-decoration: none;
-            display: inline-block;
+            margin: 0 6px;
         }
 
-        /* Footer Discreto */
-        .konfio-footer {
+        .copyright-konfio {
             font-size: 10px;
             color: rgba(148, 163, 184, 0.4);
+            letter-spacing: 0.5px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 12px;
         }
@@ -409,132 +531,179 @@
 </head>
 <body>
 
-    <div class="gateway-card">
+    <div class="gateway-app">
         
-        <!-- Badge -->
-        <div class="brand-badge">
-            <i class="fa-solid fa-bolt"></i> Centro de Acceso Oficial
-        </div>
+        <!-- Hero Principal con Imagen y Mensaje Potente -->
+        <header class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                
+                <div class="logo-box">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
 
-        <!-- Logo Icon -->
-        <div class="hero-logo-box">
-            <i class="fa-solid fa-bag-shopping"></i>
-        </div>
+                <h1 class="brand-name">Donde<span>Compro</span></h1>
+                <p class="hero-headline">Encuentra cualquier negocio de Colombia en un solo lugar.</p>
+                <p class="hero-subline">Busca, conecta y compra en segundos sin intermediarios.</p>
 
-        <!-- Hero Title -->
-        <h1 class="hero-title">Donde<span>Compro</span></h1>
-        <p class="hero-tagline">Toda Colombia en un solo lugar. Encuentra comercios, publica tu negocio y conecta con nuevos clientes.</p>
+                <!-- Botones Principales de Jerarquía -->
+                <div class="main-ctas">
+                    <a href="https://www.dondecompro.com.co" class="btn-main-primary" target="_blank">
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar Comercios
+                    </a>
+                    <a href="https://www.dondecompro.com.co" class="btn-main-secondary" target="_blank">
+                        <i class="fa-solid fa-store"></i> Registrar Mi Negocio Gratis
+                    </a>
+                </div>
 
-        <!-- Botones Principales -->
-        <div class="cta-group">
-            <a href="https://www.dondecompro.com.co" class="btn-primary-action" target="_blank">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i> Ir a DondeCompro
-            </a>
-            <a href="https://www.dondecompro.com.co" class="btn-secondary-action" target="_blank">
-                <i class="fa-solid fa-store"></i> Registrar mi Comercio
-            </a>
-        </div>
-
-        <!-- Accesos Rápidos -->
-        <div class="section-label">Accesos Rápidos</div>
-        <div class="quick-grid">
-            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
-                <i class="fa-solid fa-magnifying-glass"></i> Buscar Comercios
-            </a>
-            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
-                <i class="fa-solid fa-plus-circle"></i> Registrar Negocio
-            </a>
-            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
-                <i class="fa-solid fa-user-gear"></i> Ingresar al Panel
-            </a>
-            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
-                <i class="fa-solid fa-location-crosshairs"></i> Cerca de Mí
-            </a>
-            <a href="https://wa.me/573218712092?text=Hola%20DondeCompro,%20necesito%20soporte%20o%20informaci%C3%B3n" class="quick-item" target="_blank">
-                <i class="fa-brands fa-whatsapp" style="color: var(--brand-whatsapp);"></i> WhatsApp Directo
-            </a>
-            <a href="https://www.dondecompro.com.co" class="quick-item" target="_blank">
-                <i class="fa-solid fa-globe"></i> Sitio Web Oficial
-            </a>
-        </div>
-
-        <!-- ¿Qué es? -->
-        <div class="info-box">
-            <h3>¿Qué es DondeCompro?</h3>
-            <p>Una plataforma colombiana diseñada para conectar personas con negocios, productos y servicios desde un solo lugar de manera ágil y directa.</p>
-        </div>
-
-        <!-- Cómo funciona -->
-        <div class="section-label">¿Cómo Funciona?</div>
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-num">1</div>
-                <div class="step-title">Busca</div>
-                <div class="step-desc">Encuentra comercios</div>
             </div>
-            <div class="step-card">
-                <div class="step-num">2</div>
-                <div class="step-title">Contacta</div>
-                <div class="step-desc">Habla directo</div>
+        </header>
+
+        <!-- Cuerpo Interactivo -->
+        <main class="app-body">
+            
+            <!-- Accesos Rápidos -->
+            <div class="section-header">
+                <span class="section-title">Accesos Rápidos</span>
             </div>
-            <div class="step-card">
-                <div class="step-num">3</div>
-                <div class="step-title">Compra</div>
-                <div class="step-desc">Sin comisiones</div>
+            <div class="quick-access-grid">
+                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-compass"></i>
+                    <div class="quick-card-text">
+                        <span>Explorar</span>
+                        <small>Directorio nacional</small>
+                    </div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <div class="quick-card-text">
+                        <span>Mi Panel</span>
+                        <small>Gestión de comercio</small>
+                    </div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="quick-card-text">
+                        <span>Cerca de Mí</span>
+                        <small>Geolocalización</small>
+                    </div>
+                </a>
+                <a href="https://wa.me/573218712092?text=Hola%20DondeCompro,%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="quick-card" target="_blank">
+                    <i class="fa-brands fa-whatsapp" style="color:var(--brand-whatsapp);"></i>
+                    <div class="quick-card-text">
+                        <span>WhatsApp</span>
+                        <small>Soporte oficial</small>
+                    </div>
+                </a>
             </div>
-        </div>
 
-        <!-- Categorías -->
-        <div class="section-label">Explora por Categorías</div>
-        <div class="categories-grid">
-            <div class="cat-item"><i class="fa-solid fa-utensils"></i>Comida</div>
-            <div class="cat-item"><i class="fa-solid fa-scale-balanced"></i>Abogados</div>
-            <div class="cat-item"><i class="fa-solid fa-calculator"></i>Contadores</div>
-            <div class="cat-item"><i class="fa-solid fa-scissors"></i>Belleza</div>
-            <div class="cat-item"><i class="fa-solid fa-notes-medical"></i>Salud</div>
-            <div class="cat-item"><i class="fa-solid fa-house"></i>Hogar</div>
-            <div class="cat-item"><i class="fa-solid fa-car"></i>Automotriz</div>
-            <div class="cat-item"><i class="fa-solid fa-cart-shopping"></i>Tiendas</div>
-        </div>
+            <!-- ¿Cómo Funciona? -->
+            <div class="section-header">
+                <span class="section-title">¿Cómo Funciona?</span>
+            </div>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h4>1. Busca</h4>
+                    <p>Fácil y rápido</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h4>2. Conecta</h4>
+                    <p>Sin comisión</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                    <h4>3. Compra</h4>
+                    <p>Directo al negocio</p>
+                </div>
+            </div>
 
-        <!-- ¿Por qué registrarse? -->
-        <div class="benefits-box">
-            <h4>¿Por qué registrar tu negocio?</h4>
-            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Más visibilidad en toda Colombia</div>
-            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Nuevos clientes cada día</div>
-            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Perfil profesional optimizado</div>
-            <div class="benefit-item"><i class="fa-solid fa-circle-check"></i> Fácil de compartir por WhatsApp</div>
-        </div>
+            <!-- Categorías con Imágenes Reales -->
+            <div class="section-header">
+                <span class="section-title">Categorías Destacadas</span>
+            </div>
+            <div class="categories-scroll">
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Restaurantes">
+                    <div class="cat-label"><i class="fa-solid fa-utensils"></i> Gastronomía</div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" alt="Belleza">
+                    <div class="cat-label"><i class="fa-solid fa-scissors"></i> Belleza & Spa</div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Servicios">
+                    <div class="cat-label"><i class="fa-solid fa-briefcase"></i> Servicios Prof.</div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80" alt="Tiendas">
+                    <div class="cat-label"><i class="fa-solid fa-store"></i> Comercios local</div>
+                </a>
+            </div>
 
-        <!-- Banner Oportunidad B2B para Comercios (Demostración de Integración) -->
-        <div class="b2b-banner">
-            <h5>⭐ ¿Tienes un comercio afiliado?</h5>
-            <p>Obtén tu propia Tarjeta Digital Profesional respaldada por la red DondeCompro.</p>
-            <a href="https://wa.me/573218712092?text=Deseo%20solicitar%20mi%20Tarjeta%20Digital%20Profesional%20para%20mi%20comercio" class="btn-b2b" target="_blank">
-                Solicitar Tarjeta Digital
-            </a>
-        </div>
+            <!-- Visión y Comunidad Nacional -->
+            <div class="community-box">
+                <h3>Únete a la Red Comercial de Colombia</h3>
+                <p>Conectamos personas y comercios en todo el territorio nacional bajo una misma infraestructura digital.</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h5>100%</h5>
+                        <small>Cobertura</small>
+                    </div>
+                    <div class="stat-item">
+                        <h5>0%</h5>
+                        <small>Comisiones</small>
+                    </div>
+                    <div class="stat-item">
+                        <h5>Directo</h5>
+                        <small>WhatsApp</small>
+                    </div>
+                </div>
+            </div>
 
-        <!-- QR Gigante -->
-        <div class="section-label">Escanéame para Compartir</div>
-        <div class="qr-box">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.dondecompro.com.co&color=070A11" alt="QR DondeCompro">
-        </div>
-        <div class="qr-label">Acceso Directo a DondeCompro.com.co</div>
+            <!-- Módulo Upsell Integrado para Alianza KONFÍO ZINC -->
+            <div class="konfio-upsell-card">
+                <span class="upsell-badge">Beneficio para Afiliados</span>
+                <h4>¿Quieres potenciar tu negocio?</h4>
+                <p>Obtén tu Tarjeta Digital Profesional, Catálogo Interactivo y Perfil Premium para compartir por WhatsApp.</p>
+                <a href="https://wa.me/573218712092?text=Hola,%20soy%20un%20comercio%20de%20DondeCompro%20y%20quiero%20potenciar%20mi%20negocio%20con%20una%20Tarjeta%20Digital" class="btn-upsell" target="_blank">
+                    <i class="fa-solid fa-bolt"></i> Potenciar Mi Negocio
+                </a>
+            </div>
 
-        <!-- Redes Sociales -->
-        <div class="social-row">
-            <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://wa.me/573218712092" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
+            <!-- QR Gigante -->
+            <div style="text-align: center;">
+                <div class="section-title" style="margin-bottom: 10px;">Escanéame para Acceder</div>
+                <div class="qr-wrapper">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.dondecompro.com.co&color=070B14" alt="QR DondeCompro">
+                </div>
+                <div class="qr-subtitle">www.dondecompro.com.co</div>
+            </div>
 
-        <!-- Créditos Obligatorios -->
-        <div class="konfio-footer">
-            Desarrollado por Konfío Zinc @ Todos los Derechos Reservados
-        </div>
+        </main>
+
+        <!-- Footer Profesional -->
+        <footer class="app-footer">
+            <div class="social-links-row">
+                <a href="#" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon-btn"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/573218712092" class="social-icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <div class="footer-brand-title">DondeCompro Colombia</div>
+            <div class="footer-links">
+                <a href="https://www.dondecompro.com.co">Inicio</a> • 
+                <a href="https://www.dondecompro.com.co">Comercios</a> • 
+                <a href="https://www.dondecompro.com.co">Registro</a>
+            </div>
+
+            <!-- Crédito Obligatorio KONFÍO ZINC -->
+            <div class="copyright-konfio">
+                Desarrollado por Konfío Zinc @ Todos los Derechos Reservados
+            </div>
+        </footer>
 
     </div>
 
