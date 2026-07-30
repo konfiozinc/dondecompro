@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DondeCompro | El Centro de Acceso Comercial de Colombia</title>
-    <!-- Iconos Unificados FontAwesome 6 -->
+    <title>DondeCompro | Centro de Acceso Oficial</title>
+    <!-- Iconos FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Tipografía Google Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
             --primary-blue: #2563EB;
             --primary-cyan: #06B6D4;
             --accent-green: #10B981;
-            --accent-orange: #F97316;
+            --hotmart-orange: #FF5722;
             
             --text-primary: #F8FAFC;
             --text-secondary: #94A3B8;
@@ -33,8 +33,8 @@
             
             /* Social Brands */
             --brand-whatsapp: #25D366;
-            --brand-instagram: #E4405F;
             --brand-facebook: #1877F2;
+            --brand-instagram: #E4405F;
         }
 
         * {
@@ -76,12 +76,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section Impactante */
+        /* Hero Section */
         .hero-section {
             position: relative;
             padding: 35px 20px 25px;
             text-align: center;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, var(--surface-card) 100%),
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, var(--surface-card) 100%),
                         url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
             border-bottom: 1px solid var(--border-light);
         }
@@ -89,7 +89,7 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(7, 11, 20, 0.75) 0%, var(--surface-card) 100%);
+            background: linear-gradient(180deg, rgba(7, 11, 20, 0.8) 0%, var(--surface-card) 100%);
             z-index: 1;
         }
 
@@ -257,7 +257,7 @@
             transform: translateY(-2px);
         }
 
-        /* Sección ¿Cómo Funciona? (3 Pasos) */
+        /* Sección ¿Cómo Funciona? Fiel a la Web */
         .how-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -288,106 +288,56 @@
         }
 
         .how-card h4 {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 2px;
         }
 
         .how-card p {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
+            line-height: 1.2;
         }
 
-        /* Galería de Categorías Reales con Fotos */
-        .categories-scroll {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 28px;
-        }
-
-        .cat-photo-card {
-            position: relative;
-            height: 85px;
-            border-radius: var(--radius-card);
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            text-decoration: none;
-        }
-
-        .cat-photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.6);
-            transition: all 0.3s ease;
-        }
-
-        .cat-photo-card:hover img {
-            filter: brightness(0.8);
-            transform: scale(1.05);
-        }
-
-        .cat-label {
-            position: absolute;
-            bottom: 8px;
-            left: 10px;
-            right: 10px;
-            color: #FFFFFF;
-            font-size: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 2;
-        }
-
-        /* Sección Comunidad Nacional / Visión */
-        .community-box {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.08));
-            border: 1px solid var(--border-glow);
+        /* Banner Tu Próximo Cliente (Copy Web Oficial) */
+        .banner-opportunity {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(6, 182, 212, 0.15));
+            border: 1px solid var(--primary-cyan);
             border-radius: var(--radius-card);
             padding: 18px;
             text-align: center;
             margin-bottom: 28px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .community-box h3 {
+        .banner-opportunity h3 {
             font-size: 15px;
-            color: var(--text-primary);
-            margin-bottom: 6px;
             font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 6px;
         }
 
-        .community-box p {
-            font-size: 12px;
+        .banner-opportunity p {
+            font-size: 11px;
             color: var(--text-secondary);
             margin-bottom: 14px;
-            line-height: 1.4;
         }
 
-        .stats-row {
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px dashed var(--border-light);
-            padding-top: 12px;
-        }
-
-        .stat-item h5 {
-            font-size: 16px;
+        .btn-hotmart {
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-cyan));
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 12px;
             font-weight: 800;
-            color: var(--primary-cyan);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
         }
 
-        .stat-item small {
-            font-size: 10px;
-            color: var(--text-muted);
-        }
-
-        /* Módulo Upsell Estratégico KONFÍO ZINC (El Valor Agregado) */
+        /* Módulo Upsell Estratégico KONFÍO ZINC */
         .konfio-upsell-card {
             background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);
             border: 1px solid rgba(139, 92, 246, 0.4);
@@ -438,11 +388,6 @@
             transition: all 0.2s ease;
         }
 
-        .btn-upsell:hover {
-            filter: brightness(1.2);
-            transform: translateY(-1px);
-        }
-
         /* QR Code Gigante */
         .qr-wrapper {
             background: #FFFFFF;
@@ -476,13 +421,13 @@
         .social-links-row {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 14px;
             margin-bottom: 16px;
         }
 
         .social-icon-btn {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-light);
@@ -491,15 +436,14 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
             transition: all 0.2s ease;
         }
 
-        .social-icon-btn:hover {
-            background: var(--surface-hover);
-            color: var(--primary-cyan);
-            transform: translateY(-2px);
-        }
+        .social-icon-btn.facebook:hover { background: var(--brand-facebook); color: white; }
+        .social-icon-btn.instagram:hover { background: var(--brand-instagram); color: white; }
+        .social-icon-btn.hotmart:hover { background: var(--hotmart-orange); color: white; }
+        .social-icon-btn.whatsapp:hover { background: var(--brand-whatsapp); color: white; }
 
         .footer-brand-title {
             font-size: 13px;
@@ -533,7 +477,7 @@
 
     <div class="gateway-app">
         
-        <!-- Hero Principal con Imagen y Mensaje Potente -->
+        <!-- Hero Principal Sincronizado con Sitio Oficial -->
         <header class="hero-section">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -543,16 +487,16 @@
                 </div>
 
                 <h1 class="brand-name">Donde<span>Compro</span></h1>
-                <p class="hero-headline">Encuentra cualquier negocio de Colombia en un solo lugar.</p>
-                <p class="hero-subline">Busca, conecta y compra en segundos sin intermediarios.</p>
+                <p class="hero-headline">¡Todo el Comercio de Colombia en un Solo Lugar!</p>
+                <p class="hero-subline">Explora, conecta, publica y empieza a moverte dentro de esta red de oportunidades.</p>
 
-                <!-- Botones Principales de Jerarquía -->
+                <!-- Botones Principales -->
                 <div class="main-ctas">
                     <a href="https://www.dondecompro.com.co" class="btn-main-primary" target="_blank">
-                        <i class="fa-solid fa-magnifying-glass"></i> Buscar Comercios
+                        <i class="fa-solid fa-magnifying-glass"></i> Ir al Buscador
                     </a>
-                    <a href="https://www.dondecompro.com.co" class="btn-main-secondary" target="_blank">
-                        <i class="fa-solid fa-store"></i> Registrar Mi Negocio Gratis
+                    <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" class="btn-main-secondary" target="_blank">
+                        <i class="fa-solid fa-store"></i> Registrar Mi Comercio
                     </a>
                 </div>
 
@@ -564,13 +508,13 @@
             
             <!-- Accesos Rápidos -->
             <div class="section-header">
-                <span class="section-title">Accesos Rápidos</span>
+                <span class="section-title">Accesos Directos</span>
             </div>
             <div class="quick-access-grid">
                 <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
                     <i class="fa-solid fa-compass"></i>
                     <div class="quick-card-text">
-                        <span>Explorar</span>
+                        <span>Buscador</span>
                         <small>Directorio nacional</small>
                     </div>
                 </a>
@@ -578,14 +522,14 @@
                     <i class="fa-solid fa-user-gear"></i>
                     <div class="quick-card-text">
                         <span>Mi Panel</span>
-                        <small>Gestión de comercio</small>
+                        <small>Acceso a miembros</small>
                     </div>
                 </a>
-                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
-                    <i class="fa-solid fa-location-dot"></i>
+                <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-plus-circle"></i>
                     <div class="quick-card-text">
-                        <span>Cerca de Mí</span>
-                        <small>Geolocalización</small>
+                        <span>Registro</span>
+                        <small>Publicar negocio</small>
                     </div>
                 </a>
                 <a href="https://wa.me/573218712092?text=Hola%20DondeCompro,%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="quick-card" target="_blank">
@@ -597,69 +541,35 @@
                 </a>
             </div>
 
-            <!-- ¿Cómo Funciona? -->
+            <!-- ¿Cómo Comienzan las Oportunidades? (Copy Exacto) -->
             <div class="section-header">
-                <span class="section-title">¿Cómo Funciona?</span>
+                <span class="section-title">Aquí Comienzan las Oportunidades</span>
             </div>
             <div class="how-grid">
                 <div class="how-card">
                     <div class="how-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h4>1. Busca</h4>
-                    <p>Fácil y rápido</p>
+                    <h4>Encuentra</h4>
+                    <p>Productos cerca de ti de forma rápida</p>
                 </div>
                 <div class="how-card">
-                    <div class="how-icon"><i class="fa-solid fa-comments"></i></div>
-                    <h4>2. Conecta</h4>
-                    <p>Sin comisión</p>
+                    <div class="how-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h4>Conecta</h4>
+                    <p>Escribe directo al comercio en minutos</p>
                 </div>
                 <div class="how-card">
-                    <div class="how-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-                    <h4>3. Compra</h4>
-                    <p>Directo al negocio</p>
+                    <div class="how-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>Expándete</h4>
+                    <p>Publica y abre oportunidades de venta</p>
                 </div>
             </div>
 
-            <!-- Categorías con Imágenes Reales -->
-            <div class="section-header">
-                <span class="section-title">Categorías Destacadas</span>
-            </div>
-            <div class="categories-scroll">
-                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Restaurantes">
-                    <div class="cat-label"><i class="fa-solid fa-utensils"></i> Gastronomía</div>
+            <!-- Banner "Tu Próximo Cliente..." -->
+            <div class="banner-opportunity">
+                <h3>Tu Próximo Cliente podría estar Buscándote en este Momento</h3>
+                <p>Haz que te encuentren justo cuando te están buscando.</p>
+                <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" class="btn-hotmart" target="_blank">
+                    <i class="fa-solid fa-user-plus"></i> Crear Mi Perfil Oficial
                 </a>
-                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" alt="Belleza">
-                    <div class="cat-label"><i class="fa-solid fa-scissors"></i> Belleza & Spa</div>
-                </a>
-                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Servicios">
-                    <div class="cat-label"><i class="fa-solid fa-briefcase"></i> Servicios Prof.</div>
-                </a>
-                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80" alt="Tiendas">
-                    <div class="cat-label"><i class="fa-solid fa-store"></i> Comercios local</div>
-                </a>
-            </div>
-
-            <!-- Visión y Comunidad Nacional -->
-            <div class="community-box">
-                <h3>Únete a la Red Comercial de Colombia</h3>
-                <p>Conectamos personas y comercios en todo el territorio nacional bajo una misma infraestructura digital.</p>
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <h5>100%</h5>
-                        <small>Cobertura</small>
-                    </div>
-                    <div class="stat-item">
-                        <h5>0%</h5>
-                        <small>Comisiones</small>
-                    </div>
-                    <div class="stat-item">
-                        <h5>Directo</h5>
-                        <small>WhatsApp</small>
-                    </div>
-                </div>
             </div>
 
             <!-- Módulo Upsell Integrado para Alianza KONFÍO ZINC -->
@@ -683,20 +593,19 @@
 
         </main>
 
-        <!-- Footer Profesional -->
+        <!-- Footer Profesional con Redes Oficiales -->
         <footer class="app-footer">
             <div class="social-links-row">
-                <a href="#" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon-btn"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://wa.me/573218712092" class="social-icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/DondeComproColombia/?rdid=3gqsM5GJToq3KcTC" class="social-icon-btn facebook" target="_blank" title="Facebook Oficial"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/dondecomprocolombia?utm_source=qr&igsh=MXAxbjU4NW8zZWk5NQ%3D%3D" class="social-icon-btn instagram" target="_blank" title="Instagram Oficial"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" class="social-icon-btn hotmart" target="_blank" title="Registro Hotmart"><i class="fa-solid fa-fire"></i></a>
+                <a href="https://wa.me/573218712092" class="social-icon-btn whatsapp" target="_blank" title="WhatsApp Soporte"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
 
-            <div class="footer-brand-title">DondeCompro Colombia</div>
+            <div class="footer-brand-title">DondeCompro.com.co</div>
             <div class="footer-links">
-                <a href="https://www.dondecompro.com.co">Inicio</a> • 
-                <a href="https://www.dondecompro.com.co">Comercios</a> • 
-                <a href="https://www.dondecompro.com.co">Registro</a>
+                <a href="https://www.dondecompro.com.co">Términos y Condiciones</a> • 
+                <a href="https://www.dondecompro.com.co">Política de Privacidad</a>
             </div>
 
             <!-- Crédito Obligatorio KONFÍO ZINC -->
