@@ -99,10 +99,10 @@
             z-index: 2;
         }
 
-        /* Contenedor del Logo Oficial */
+        /* Contenedor del Logo Oficial SVG */
         .official-logo-box {
-            width: 130px;
-            height: 130px;
+            width: 125px;
+            height: 125px;
             margin: 0 auto 16px;
             background: #FFFFFF;
             border-radius: 28px;
@@ -113,12 +113,6 @@
             box-shadow: 0 12px 35px rgba(43, 108, 176, 0.5);
             border: 2px solid rgba(255, 255, 255, 0.3);
             animation: pulseLogo 3s infinite ease-in-out;
-        }
-
-        .official-logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
         }
 
         @keyframes pulseLogo {
@@ -541,14 +535,32 @@
 
     <div class="gateway-app">
         
-        <!-- Hero Principal con Logo Oficial -->
+        <!-- Hero Principal con Logo Oficial Vectorial -->
         <header class="hero-section">
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 
-                <!-- Logo Oficial DondeCompro -->
+                <!-- Logo Oficial Vectorial (SVG Integrado Nativamente) -->
                 <div class="official-logo-box">
-                    <img src="https://dondecompro.com.co/wp-content/uploads/2023/06/logo-dondecompro.png" alt="DondeCompro Logo Oficial" onerror="this.src='https://i.ibb.co/3sH0TfC/dondecompro-logo.png';">
+                    <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pin Azul Institucional -->
+                        <path d="M100 10 C53 10 15 48 15 95 C15 150 100 215 100 215 C100 215 185 150 185 95 C185 48 147 10 100 10 Z" fill="#2B6CB0"/>
+                        <!-- Círculo Blanco Interior -->
+                        <circle cx="100" cy="90" r="54" fill="#FFFFFF"/>
+                        <!-- Icono Carrito y Mano con Moneda -->
+                        <g fill="none" stroke="#1A202C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M72 75 L80 75 L88 102 L118 102 L124 82 L82 82" />
+                            <circle cx="92" cy="110" r="3.5" fill="#1A202C" />
+                            <circle cx="114" cy="110" r="3.5" fill="#1A202C" />
+                            <!-- Mano recibiendo moneda -->
+                            <path d="M96 68 C104 68 116 66 122 62 M122 62 C125 70 115 73 108 73" />
+                            <circle cx="108" cy="56" r="7" stroke-width="3"/>
+                            <text x="105.5" y="59.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="9" fill="#1A202C" stroke="none">$</text>
+                        </g>
+                        <!-- Texto manuscrito inferior "donde COMPRO .com.co" -->
+                        <text x="100" y="222" font-family="sans-serif" font-style="italic" font-size="16" fill="#1A202C" text-anchor="middle">donde</text>
+                        <text x="100" y="236" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="16" fill="#000000" text-anchor="middle" letter-spacing="-0.5">COMPRO</text>
+                    </svg>
                 </div>
 
                 <p class="hero-headline">Encuentra cualquier negocio de Colombia en un solo lugar.</p>
