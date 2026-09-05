@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>DondeCompro | El Centro de Acceso Comercial de Colombia</title>
+    <!-- Iconos Unificados FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tipografía Google Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    
+<link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+
+    <div class="gateway-app">
+        
+        <!-- Hero Principal con Logo Oficial Vectorial -->
+        <header class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                
+                <!-- Logo Oficial Vectorial (SVG Integrado Nativamente) -->
+                <div class="official-logo-box">
+                    <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pin Azul Institucional -->
+                        <path d="M100 10 C53 10 15 48 15 95 C15 150 100 215 100 215 C100 215 185 150 185 95 C185 48 147 10 100 10 Z" fill="#2B6CB0"/>
+                        <!-- Círculo Blanco Interior -->
+                        <circle cx="100" cy="90" r="54" fill="#FFFFFF"/>
+                        <!-- Icono Carrito y Mano con Moneda -->
+                        <g fill="none" stroke="#1A202C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M72 75 L80 75 L88 102 L118 102 L124 82 L82 82" />
+                            <circle cx="92" cy="110" r="3.5" fill="#1A202C" />
+                            <circle cx="114" cy="110" r="3.5" fill="#1A202C" />
+                            <!-- Mano recibiendo moneda -->
+                            <path d="M96 68 C104 68 116 66 122 62 M122 62 C125 70 115 73 108 73" />
+                            <circle cx="108" cy="56" r="7" stroke-width="3"/>
+                            <text x="105.5" y="59.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="9" fill="#1A202C" stroke="none">$</text>
+                        </g>
+                        <!-- Texto manuscrito inferior "donde COMPRO .com.co" -->
+                        <text x="100" y="222" font-family="sans-serif" font-style="italic" font-size="16" fill="#1A202C" text-anchor="middle">donde</text>
+                        <text x="100" y="236" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="16" fill="#000000" text-anchor="middle" letter-spacing="-0.5">COMPRO</text>
+                    </svg>
+                </div>
+
+                <p class="hero-headline">Encuentra cualquier negocio de Colombia en un solo lugar.</p>
+                <p class="hero-subline">Busca, conecta y compra en segundos sin intermediarios.</p>
+
+                <!-- Botones Principales -->
+                <div class="main-ctas">
+                    <a href="https://www.dondecompro.com.co" class="btn-main-primary" target="_blank">
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar Comercios
+                    </a>
+                    <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" class="btn-main-hotmart" target="_blank">
+                        <i class="fa-solid fa-fire"></i> Registrar Mi Comercio (Hotmart)
+                    </a>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- Cuerpo Interactivo -->
+        <main class="app-body">
+            
+            <!-- Accesos Rápidos -->
+            <div class="section-header">
+                <span class="section-title">Accesos Rápidos</span>
+            </div>
+            <div class="quick-access-grid">
+                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-compass"></i>
+                    <div class="quick-card-text">
+                        <span>Explorar</span>
+                        <small>Directorio nacional</small>
+                    </div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <div class="quick-card-text">
+                        <span>Mi Panel</span>
+                        <small>Gestión de comercio</small>
+                    </div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="quick-card" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="quick-card-text">
+                        <span>Cerca de Mí</span>
+                        <small>Geolocalización</small>
+                    </div>
+                </a>
+                <a href="https://wa.me/573218712092?text=Hola%20DondeCompro,%20deseo%20m%C3%A1s%20informaci%C3%B3n" class="quick-card" target="_blank">
+                    <i class="fa-brands fa-whatsapp" style="color:var(--brand-whatsapp);"></i>
+                    <div class="quick-card-text">
+                        <span>WhatsApp</span>
+                        <small>Soporte oficial</small>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ¿Cómo Funciona? -->
+            <div class="section-header">
+                <span class="section-title">¿Cómo Funciona?</span>
+            </div>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h4>1. Busca</h4>
+                    <p>Fácil y rápido</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h4>2. Conecta</h4>
+                    <p>Sin comisión</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                    <h4>3. Compra</h4>
+                    <p>Directo al negocio</p>
+                </div>
+            </div>
+
+            <!-- Categorías con Imágenes Reales -->
+            <div class="section-header">
+                <span class="section-title">Categorías Destacadas</span>
+            </div>
+            <div class="categories-scroll">
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Restaurantes">
+                    <div class="cat-label"><i class="fa-solid fa-utensils"></i> Gastronomía</div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" alt="Belleza">
+                    <div class="cat-label"><i class="fa-solid fa-scissors"></i> Belleza & Spa</div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Servicios">
+                    <div class="cat-label"><i class="fa-solid fa-briefcase"></i> Servicios Prof.</div>
+                </a>
+                <a href="https://www.dondecompro.com.co" class="cat-photo-card" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=80" alt="Tiendas">
+                    <div class="cat-label"><i class="fa-solid fa-store"></i> Comercios Local</div>
+                </a>
+            </div>
+
+            <!-- Visión y Comunidad Nacional -->
+            <div class="community-box">
+                <h3>Únete a la Red Comercial de Colombia</h3>
+                <p>Conectamos personas y comercios en todo el territorio nacional bajo una misma infraestructura digital.</p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h5>100%</h5>
+                        <small>Cobertura</small>
+                    </div>
+                    <div class="stat-item">
+                        <h5>0%</h5>
+                        <small>Comisiones</small>
+                    </div>
+                    <div class="stat-item">
+                        <h5>Directo</h5>
+                        <small>WhatsApp</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Módulo Upsell Estratégico KONFÍO ZINC -->
+            <div class="konfio-upsell-card">
+                <span class="upsell-badge">Beneficio para Afiliados</span>
+                <h4>¿Quieres potenciar tu negocio?</h4>
+                <p>Obtén tu Tarjeta Digital Profesional, Catálogo Interactivo y Perfil Premium para compartir por WhatsApp.</p>
+                <a href="https://wa.me/573218712092?text=Hola,%20soy%20un%20comercio%20de%20DondeCompro%20y%20quiero%20potenciar%20mi%20negocio%20con%20una%20Tarjeta%20Digital" class="btn-upsell" target="_blank">
+                    <i class="fa-solid fa-bolt"></i> Potenciar Mi Negocio
+                </a>
+            </div>
+
+            <!-- QR Gigante -->
+            <div style="text-align: center;">
+                <div class="section-title" style="margin-bottom: 10px;">Escanéame para Acceder</div>
+                <div class="qr-wrapper">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.dondecompro.com.co&color=070B14" alt="QR DondeCompro">
+                </div>
+                <div class="qr-subtitle">www.dondecompro.com.co</div>
+            </div>
+
+        </main>
+
+        <!-- Footer Profesional -->
+        <footer class="app-footer">
+            <!-- Botones de Redes Sociales con Estilos Oficiales -->
+            <div class="social-links-row">
+                <a href="https://www.facebook.com/DondeComproColombia/?rdid=3gqsM5GJToq3KcTC" class="social-btn fb" target="_blank" title="Facebook Official">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/dondecomprocolombia?utm_source=qr&igsh=MXAxbjU4NW8zZWk5NQ%3D%3D" class="social-btn ig" target="_blank" title="Instagram Official">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" class="social-btn hm" target="_blank" title="Hotmart Checkout">
+                    <i class="fa-solid fa-fire"></i>
+                </a>
+                <a href="https://wa.me/573218712092" class="social-btn wa" target="_blank" title="WhatsApp Directo">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <div class="footer-brand-title">DondeCompro Colombia</div>
+            <div class="footer-links">
+                <a href="https://www.dondecompro.com.co" target="_blank">Inicio</a> • 
+                <a href="https://www.dondecompro.com.co" target="_blank">Comercios</a> • 
+                <a href="https://pay.hotmart.com/U104823341J?checkoutMode=10&bid=1785393690098" target="_blank">Hotmart Registro</a>
+            </div>
+
+            <!-- Crédito Obligatorio KONFÍO ZINC -->
+            <div class="copyright-konfio">
+                Desarrollado por Konfío Zinc @ Todos los Derechos Reservados
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
